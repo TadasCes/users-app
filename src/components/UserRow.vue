@@ -1,5 +1,5 @@
 <template>
-  <tr @click="bonk(user.id)">
+  <tr @click="openProfile">
     <td>{{ user.name }}</td>
     <td>{{ user.email }}</td>
     <td>{{ user.phone }}</td>
@@ -25,8 +25,8 @@ export default {
     user: Object,
   },
   methods: {
-    bonk: function(id) {
-      console.log(id);
+    openProfile: function() {
+      this.$router.push({ name: 'UserProfile', params: {userId: this.user.id}})
     },
   },
 };

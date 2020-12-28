@@ -22,9 +22,7 @@ export default {
   beforeMount() {
     axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
       store.state.users = response.data;
-      console.log(response.data)
       this.usersFetched = true;
-      console.log(store.state.users)
     });
   },
 };
