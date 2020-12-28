@@ -1,8 +1,7 @@
 <template>
-  <table class="table table-striped table-bordered">
-    <thead class="thead-dark">
+  <div >
+    <table id="users-table" >
       <tr>
-        <!-- TODO normalias ikonas sudet ir dydzius padaryt -->
         <th scope="col">
           Name
         </th>
@@ -16,27 +15,57 @@
           Company name
         </th>
       </tr>
-    </thead>
-    <tbody>
-      <UserRow
-        v-for="user in displayedList"
-        :key="user.name"
-        :user="user"
-        @delete-user="deleteUser"
-      ></UserRow>
-    </tbody>
-  </table>
+      <UserRow v-for="user in users" :key="user.id" :user="user" class="user-row" ></UserRow>
+    </table>
+  </div>
 </template>
 
 <script>
+import UserRow from './UserRow.vue';
+import store from '../store/index.js';
+
 export default {
   name: 'UsersTable',
-
-}
+  components: {
+    UserRow,
+  },
+  store,
+  data: function() {
+    return {
+      users: store.state.users,
+      usersFetched: store.state.usersFetched
+    };
+  },
+  methods: {
+    bonk: function(id) {
+      console.log(id)
+    }
+  }
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#users-table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.user-row:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.user-row:hover {
+  background-color: #dcdce2;
+}
+
+#users-table th {
+  background-color: #0054a6;
+  color: #fff;
+  font-size: 1.2em;
+  padding: 12px;
+  text-align: left;
+}
+
 h3 {
   margin: 40px 0 0;
 }
