@@ -13,6 +13,7 @@ export default {
   components: {
     UsersTable,
   },
+
   data() {
     return {
       users: [],
@@ -20,6 +21,7 @@ export default {
     };
   },
   beforeMount() {
+    // Receive data before rendering the page
     axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
       store.state.users = response.data;
       this.usersFetched = true;

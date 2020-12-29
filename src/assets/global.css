@@ -1,0 +1,26 @@
+/* Colors
+  text-light: #fff;
+  text-dark: #2c3e50;
+  accent: #0054a6;
+  custom fonts: Roboto 400
+*/
+
+html {
+  background-color: #fcfcfc;
+}
+
+/* Global classes */
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+@media only screen and (min-width: 920px) {
+  table {
+    border: 0.5px solid rgb(218, 220, 253);
+    background-color: #fff;
+  }
+}
